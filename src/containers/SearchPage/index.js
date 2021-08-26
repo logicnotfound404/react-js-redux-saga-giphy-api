@@ -18,7 +18,6 @@ import {GifList} from '../../components/commons'
   }
 
   onChangeInput(e){
-
     if(e && e.target && e.target.value)
       this.setState({q:e.target.value},()=>{
         this.props.dispatch(getContents({ q : this.state.q , limit : this.state.limit}))
@@ -57,7 +56,8 @@ import {GifList} from '../../components/commons'
               <div className="row">
                 
                 { 
-                  <GifList items={content_giphy_list}/>
+                  this.state.q && content_giphy_list && 
+                      <GifList items={content_giphy_list}/>
                 } 
               </div>
             </div>

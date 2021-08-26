@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';  
-import {getContents} from '../../store/giphy/action'
+import {getContentsIronMan} from '../../store/giphy/action'
 import {Layout} from '../../components/templates' 
 import {GifList} from '../../components/commons' 
 
@@ -14,12 +14,11 @@ import {GifList} from '../../components/commons'
   }
 
   componentDidMount(){
-    this.props.dispatch(getContents({ q : 'Iron Man' , limit : this.state.limit}))
+    this.props.dispatch(getContentsIronMan({ q : 'Iron Man' , limit : this.state.limit}))
   }
    
   render(){
-    const {content_giphy_list} = this.props.Giphy
-
+    const {content_ironman} = this.props.Giphy 
     return (
         <Layout>
             <div className="container">
@@ -35,7 +34,7 @@ import {GifList} from '../../components/commons'
 
               <div className="row">
                  
-              <GifList items={content_giphy_list}/>
+              <GifList items={content_ironman}/>
 
               </div>
             </div>

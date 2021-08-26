@@ -7,11 +7,11 @@ const GifList = (props) => {
         <div className="row"> 
             {
                 items && items.map((item,index) => {
-                    return <GifCardItem item={item} key={index} />   
+                    return <GifCardItem item={item} key={item.id} />   
                 })
             }
             {
-                // items != null  && items.length < 1 && 
+                items != null  && items.length < 1 && 
                     <p className="text-center">No data found</p>
             }
         </div>

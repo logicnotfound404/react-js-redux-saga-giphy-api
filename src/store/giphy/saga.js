@@ -4,7 +4,8 @@ import HttpCall from './httpCall';
 
 import { 
     giphyActionType,
-    getContentsSuccess
+    getContentsSuccess,
+    getContentsIronManSuccess
 } from './action'; 
 
 polyfill();
@@ -21,6 +22,19 @@ function* getContentsSaga({payload}) {
     }
 }
 
+function* getContentsIronManSaga({payload}) {
+    try {
+        const result = yield call(HttpCall.httpGetContents,payload); 
+ 
+        if(result.success && result.success.data && result.success.data.meta && result.success.data.meta.status == 200)
+            yield put(getContentsIronManSuccess(result.success.data))
+
+    } catch (err) { 
+        console.log(err)
+    }
+}
+
 export default function* rootSaga() {  
     yield all([takeEvery(giphyActionType.GET_CONTENTS, getContentsSaga)]);
+    yield all([takeEvery(giphyActionType.GET_CONTENTS_IRONMAN, getContentsIronManSaga)]);
 }
