@@ -1,3 +1,6 @@
+### `DEMO`
+https://6127e62c5e65023bca21871e--react-redux-saga-giphy.netlify.app/
+
 ### `Page done` 
 - Home Page
 - Page Searching gif for maximum 9 items
